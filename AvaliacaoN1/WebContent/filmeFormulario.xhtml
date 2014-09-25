@@ -1,0 +1,33 @@
+<ui:composition template="includes/estrutura.xhtml"
+	  xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://java.sun.com/jsf/html"  
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+	<ui:define name="corpo"> 
+
+		<h1>Sala</h1>
+		<p:messages id="messages"/>   
+	
+		<h:form>
+			<f:validateBean>
+					<h:panelGrid columns="2" style="margin-bottom:10px">
+						<h:outputLabel for="numero" value="Numero: *" />  
+						<p:inputText id="numero" value="#{salaFormController.sala.numero}" size="60">
+							<p:message for="numero" />
+						</p:inputText>
+						
+						<h:outputLabel for="capacidade" value="Capacidade: *" />  
+						<p:inputText id="capacidade" value="#{salaFormController.sala.capacidade}" size="60">
+							<p:message for="capacidade" />
+						</p:inputText>						
+					</h:panelGrid>
+				
+			<p:commandButton action="#{salaFormController.salvar}" value="Salvar" ajax="false"/>
+			</f:validateBean>
+		</h:form>	
+
+	</ui:define>
+</ui:composition>
