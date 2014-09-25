@@ -1,8 +1,11 @@
 package edu.fae.dao.hibernate;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Query;
+
+import com.sun.xml.internal.ws.api.model.SEIModel;
 
 import edu.fae.dao.SalaDao;
 import edu.fae.model.Sala;
@@ -13,7 +16,7 @@ import edu.fae.model.Sala;
  *
  */
 @SuppressWarnings("unchecked")
-public class SalaDaoHibernate extends AbstractDaoHibernate implements SalaDao {
+public class SalaDaoHibernate extends AbstractDaoHibernate implements SalaDao, Serializable {
 	
 	public List<Sala> findAll() {
 		return getSession().createQuery("from Sala").list();

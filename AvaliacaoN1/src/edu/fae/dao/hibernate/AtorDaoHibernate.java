@@ -1,5 +1,6 @@
 package edu.fae.dao.hibernate;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -13,7 +14,7 @@ import edu.fae.model.Ator;
  *
  */
 @SuppressWarnings("unchecked")
-public class AtorDaoHibernate extends AbstractDaoHibernate implements AtorDao {
+public class AtorDaoHibernate extends AbstractDaoHibernate implements AtorDao, Serializable {
 	
 	public List<Ator> findAll() {
 		return getSession().createQuery("from Ator").list();

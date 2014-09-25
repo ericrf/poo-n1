@@ -1,5 +1,6 @@
 package edu.fae.dao.hibernate;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -13,7 +14,7 @@ import edu.fae.model.Filme;
  *
  */
 @SuppressWarnings("unchecked")
-public class FilmeDaoHibernate extends AbstractDaoHibernate implements FilmeDao {
+public class FilmeDaoHibernate extends AbstractDaoHibernate implements FilmeDao, Serializable {
 	
 	public List<Filme> findAll() {
 		return getSession().createQuery("from Filme").list();

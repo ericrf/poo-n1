@@ -1,5 +1,6 @@
 package edu.fae.dao.hibernate;
 
+import java.io.Serializable;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -13,7 +14,7 @@ import edu.fae.model.Sessao;
  *
  */
 @SuppressWarnings("unchecked")
-public class SessaoDaoHibernate extends AbstractDaoHibernate implements SessaoDao {
+public class SessaoDaoHibernate extends AbstractDaoHibernate implements SessaoDao, Serializable {
 	
 	public List<Sessao> findAll() {
 		return getSession().createQuery("from Sessao").list();

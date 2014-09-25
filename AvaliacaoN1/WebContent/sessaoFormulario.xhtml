@@ -1,0 +1,52 @@
+<ui:composition template="includes/estrutura.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+	<ui:define name="corpo">
+
+		<h1>Sessao</h1>
+		<p:messages id="messages" />
+
+		<h:form>
+			<f:validateBean>
+				<h:panelGrid columns="2" style="margin-bottom:10px">
+					<h:outputLabel for="nome" value="Nome: *" />
+					<p:inputText id="nome" value="#{sessaoFormController.sessao.nome}"
+						size="60">
+						<p:message for="nome" />
+					</p:inputText>
+
+					<br />
+					<p:selectOneMenu id="sala"
+						value="#{sessaoFormController.sessao.sala}"
+						converter="modelConverter">
+						<f:selectItem itemLabel="Selecione" itemValue="" />
+						<f:selectItems value="#{sessaoFormController.salas}"
+							var="sala" itemLabel="#{sala.numero}"
+							itemValue="#{sala}" />
+					</p:selectOneMenu>
+					
+					
+					<br />
+					<p:selectOneMenu id="vendedor"
+						value="#{sessaoFormController.sessao.filme}"
+						converter="modelConverter">
+						<f:selectItem itemLabel="Selecione" itemValue="" />
+						<f:selectItems value="#{sessaoFormController.filmes}"
+							var="filme" itemLabel="#{filme.titulo}"
+							itemValue="#{filme}" />
+					</p:selectOneMenu>
+
+				</h:panelGrid>
+
+				<p:commandButton action="#{sessaoFormController.salvar}"
+					value="Salvar" ajax="false" />
+			</f:validateBean>
+		</h:form>
+
+	</ui:define>
+</ui:composition>
