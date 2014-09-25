@@ -14,13 +14,10 @@
 		<h:form>
 			<f:validateBean>
 				<h:panelGrid columns="2" style="margin-bottom:10px">
-					<h:outputLabel for="nome" value="Nome: *" />
-					<p:inputText id="nome" value="#{sessaoFormController.sessao.nome}"
-						size="60">
-						<p:message for="nome" />
-					</p:inputText>
+					<h:outputLabel for="data" value="Data: *" />
+					<p:calendar id="data" value="#{sessaoFormController.sessao.data}" showOn="button" />
 
-					<br />
+					<h:outputLabel for="sala" value="Sala: *" />
 					<p:selectOneMenu id="sala"
 						value="#{sessaoFormController.sessao.sala}"
 						converter="modelConverter">
@@ -30,9 +27,8 @@
 							itemValue="#{sala}" />
 					</p:selectOneMenu>
 					
-					
-					<br />
-					<p:selectOneMenu id="vendedor"
+					<h:outputLabel for="filme" value="Filme: *" />
+					<p:selectOneMenu id="filme"
 						value="#{sessaoFormController.sessao.filme}"
 						converter="modelConverter">
 						<f:selectItem itemLabel="Selecione" itemValue="" />
