@@ -12,7 +12,7 @@ import edu.fae.dao.hibernate.SessaoDaoHibernate;
  */
 public class DaoFactory {
 	
-	public static AtorDao getCategoriaDao() {
+	public static AtorDao getAtorDao() {
 		return new AtorDaoHibernate();
 	}		
 	
@@ -26,7 +26,7 @@ public class DaoFactory {
 
 	public static SessaoDao getSessaoDao() {
 		return new SessaoDaoHibernate();
-	}		
+	}	
 
 	
 }

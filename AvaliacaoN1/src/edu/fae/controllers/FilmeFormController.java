@@ -6,23 +6,28 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
+import org.primefaces.model.DualListModel;
+
+import edu.fae.dao.AtorDao;
 import edu.fae.dao.DaoFactory;
 import edu.fae.dao.FilmeDao;
+import edu.fae.model.Ator;
 import edu.fae.model.Filme;
+import edu.fae.util.DualListModelDiff;
 
 @ViewScoped
 @ManagedBean(name="filmeFormController")
 public class FilmeFormController {
 	private FilmeDao filmeDao = DaoFactory.getFilmeDao();
+	private AtorDao atorDao = DaoFactory.getAtorDao();
 	private Filme filme;
 
 	@PostConstruct
 	public void iniciar() {
-		//Pegando o parâmetro id da URL
 		String id = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("id");
-		if(id==null) {//Quando o id está null, abrimos o formulário para inserção
+		if(id==null) {
 			filme = new Filme();
-		}else{//Quando o id é passado como parâmetro abrimos o formulário para edição
+		}else{
 			filme = filmeDao.findById(new Long(id));
 		}
 	}
@@ -30,18 +35,20 @@ public class FilmeFormController {
 		return filme;
 	}
 	
-	public void salvar() {
-		//Pegamos uma referencia para o FacesContext, para mandar mensagens para a tela
+	public void salvor() {
 		FacesContext ctx = FacesContext.getCurrentInstance();
-		
-
-		//Chama o filmeDao para salvar o objeto Filme
 		filmeDao.save(filme);
 		
-		//Mandando uma mensagem para a tela
 		ctx.addMessage(null, 
-			new FacesMessage(FacesMessage.SEVERITY_INFO, "Filme salva com sucesso!", null)
+			new FacesMessage(FacesMessage.SEVERITY_INFO, "Filme salvo com sucesso!", null)
 		);
+	}
+	
+	public DualListModel<Ator> getAnuncioCategorias() {
+		return new DualListModelDiff<Ator>(atorDao.findAll(), filme.getAtores());
+	}	
+	public void setAnuncioCategorias(DualListModel<Ator> target) {
+		filme.setAtores(target.getTarget());
 	}
 	
 
