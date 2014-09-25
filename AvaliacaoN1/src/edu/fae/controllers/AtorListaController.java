@@ -8,20 +8,20 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import edu.fae.dao.DaoFactory;
-import edu.fae.dao.FilmeDao;
-import edu.fae.model.Filme;
+import edu.fae.dao.AtorDao;
+import edu.fae.model.Ator;
 
 @ViewScoped
-@ManagedBean(name="filmeListaController")
-public class FilmeListaController implements Serializable{
-	private FilmeDao filmeDao = DaoFactory.getFilmeDao();
+@ManagedBean(name="atorListaController")
+public class AtorListaController implements Serializable{
+	private AtorDao atorDao = DaoFactory.getAtorDao();
 	/**
-	 * Armazena as filmes mostrados na view
+	 * Armazena as atores mostrados na view
 	 */
-	private List<Filme> filmes;
+	private List<Ator> atores;
 	
 	/**
-	 * Recebe o id da filme para ser excluído
+	 * Recebe o id da ator para ser excluído
 	 */
 	private Long id;
 	
@@ -31,17 +31,17 @@ public class FilmeListaController implements Serializable{
 	 */
 	@PostConstruct
 	public void buscaTodos() {
-		filmes = filmeDao.findAll();
+		atores = atorDao.findAll();
 	}
 
 	/**
-	 * Método que exclui um filme
+	 * Método que exclui um ator
 	 */
 	public void excluir() {
 		if(id!=null) {
-			Filme filme = filmeDao.findById(id);
-			if(filme!=null) {
-				filmeDao.remove(filme);
+			Ator ator = atorDao.findById(id);
+			if(ator!=null) {
+				atorDao.remove(ator);
 				
 				//Chama o buscaTodos para atualizar a lista
 				buscaTodos();
@@ -52,7 +52,7 @@ public class FilmeListaController implements Serializable{
 		this.id = id;
 	}
 	
-	public List<Filme> getFilmes() {
-		return filmes;
+	public List<Ator> getAtores() {
+		return atores;
 	}
 }

@@ -29,7 +29,7 @@
 					<br />
 					<p:pickList id="atores" value="#{filmeFormController.atores}"
 						var="ator" iconOnly="true" itemValue="#{ator}"
-						converter="modelConverter" itemLabel="#{ator}">
+						converter="modelConverter" itemLabel="#{ator.nome}">
 						<f:facet name="sourceCaption">Disponivel</f:facet>
 						<f:facet name="targetCaption">Selecionado</f:facet>
 					</p:pickList>

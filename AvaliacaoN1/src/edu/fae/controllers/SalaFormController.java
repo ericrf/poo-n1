@@ -1,5 +1,7 @@
 package edu.fae.controllers;
 
+import java.io.Serializable;
+
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -12,7 +14,7 @@ import edu.fae.model.Sala;
 
 @ViewScoped
 @ManagedBean(name="salaFormController")
-public class SalaFormController {
+public class SalaFormController implements Serializable{
 	private SalaDao salaDao = DaoFactory.getSalaDao();
 	private Sala sala;
 

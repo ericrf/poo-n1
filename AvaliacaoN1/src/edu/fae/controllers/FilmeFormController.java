@@ -1,5 +1,6 @@
 package edu.fae.controllers;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -19,7 +20,7 @@ import edu.fae.util.DualListModelDiff;
 
 @ViewScoped
 @ManagedBean(name="filmeFormController")
-public class FilmeFormController {
+public class FilmeFormController implements Serializable {
 	private FilmeDao filmeDao = DaoFactory.getFilmeDao();
 	private AtorDao atorDao = DaoFactory.getAtorDao();
 	private Filme filme;
