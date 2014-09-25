@@ -44,10 +44,10 @@ public class FilmeFormController {
 		);
 	}
 	
-	public DualListModel<Ator> getAnuncioCategorias() {
+	public DualListModel<Ator> getAtores() {
 		return new DualListModelDiff<Ator>(atorDao.findAll(), filme.getAtores());
 	}	
-	public void setAnuncioCategorias(DualListModel<Ator> target) {
+	public void setAtores(DualListModel<Ator> target) {
 		filme.setAtores(target.getTarget());
 	}
 	

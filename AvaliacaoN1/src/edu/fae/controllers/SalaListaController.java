@@ -1,5 +1,6 @@
 package edu.fae.controllers;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -12,7 +13,7 @@ import edu.fae.model.Sala;
 
 @ViewScoped
 @ManagedBean(name="salaListaController")
-public class SalaListaController {
+public class SalaListaController implements Serializable{
 	private SalaDao salaDao = DaoFactory.getSalaDao();
 	/**
 	 * Armazena as salas mostrados na view
