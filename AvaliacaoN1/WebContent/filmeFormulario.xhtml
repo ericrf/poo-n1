@@ -8,7 +8,7 @@
 
 	<ui:define name="corpo">
 
-		<h1>Sala</h1>
+		<h1>Filme</h1>
 		<p:messages id="messages" />
 
 		<h:form>
@@ -26,10 +26,10 @@
 						<p:message for="capacidade" />
 					</p:inputText>
 
-					<p:pickList id="atores"
-						value="#{filmeFormController.atores}" var="ator"
-						iconOnly="true" itemValue="#{ator}"
-						converter="modelConverter" itemLabel="#{ator.nome}">
+					<br />
+					<p:pickList id="atores" value="#{filmeFormController.atores}"
+						var="ator" iconOnly="true" itemValue="#{ator}"
+						converter="modelConverter" itemLabel="#{ator}">
 						<f:facet name="sourceCaption">Disponivel</f:facet>
 						<f:facet name="targetCaption">Selecionado</f:facet>
 					</p:pickList>

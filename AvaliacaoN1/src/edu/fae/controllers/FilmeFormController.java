@@ -1,5 +1,7 @@
 package edu.fae.controllers;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
@@ -30,12 +32,14 @@ public class FilmeFormController {
 		}else{
 			filme = filmeDao.findById(new Long(id));
 		}
+		
+		List<Ator> all = atorDao.findAll();
 	}
 	public Filme getFilme() {
 		return filme;
 	}
 	
-	public void salvor() {
+	public void salvar() {
 		FacesContext ctx = FacesContext.getCurrentInstance();
 		filmeDao.save(filme);
 		
