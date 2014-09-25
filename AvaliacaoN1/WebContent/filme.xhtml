@@ -8,31 +8,31 @@
 
 	<ui:define name="corpo">      
 
-		<h1>Pagina de Salas!</h1>
+		<h1>Pagina de Filmes!</h1>
 		
 		<h:form>
-			<p:button outcome="salaFormulario.xhtml" value="Nova Sala" /> 
+			<p:button outcome="filmeFormulario.xhtml" value="Nova Filme" /> 
 		</h:form>
 		
 		<h:form id="frmTabela">
-			<p:dataTable id="tabela" value="#{salaListaController.salas}" var="sala">
+			<p:dataTable id="tabela" value="#{filmeListaController.filmes}" var="filme">
 				<p:column>
 					<f:facet name="header">Numero</f:facet>
-					#{sala.numero}  
+					#{filme.numero}  
 			    </p:column>
 				<p:column>
 					<f:facet name="header">Capacidade</f:facet>
-					#{sala.capacidade}  
+					#{filme.capacidade}  
 			    </p:column>			    
 				<p:column style="width: 80px;">
 					<f:facet name="header">Ações</f:facet>
-					<p:button outcome="salaFormulario.xhtml" icon="ui-icon-pencil" title="Editar Sala">
-						<f:param name="id" value="#{sala.id}" />
+					<p:button outcome="filmeFormulario.xhtml" icon="ui-icon-pencil" title="Editar Filme">
+						<f:param name="id" value="#{filme.id}" />
 					</p:button>
 					<p:spacer width="10" />
 					<p:commandButton onclick="return confirm('Tem certeza que deseja excluir?')" 
-						icon="ui-icon-trash" title="Excluir Sala" ajax="true" update=":frmTabela" action="#{salaListaController.excluir}">
-						<f:setPropertyActionListener target="#{salaListaController.id}" value="#{sala.id}"/>
+						icon="ui-icon-trash" title="Excluir Filme" ajax="true" update=":frmTabela" action="#{filmeListaController.excluir}">
+						<f:setPropertyActionListener target="#{filmeListaController.id}" value="#{filme.id}"/>
 					</p:commandButton>
 			    </p:column>				    
 			</p:dataTable>

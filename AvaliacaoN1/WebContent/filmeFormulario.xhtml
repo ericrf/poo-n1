@@ -15,17 +15,17 @@
 			<f:validateBean>
 					<h:panelGrid columns="2" style="margin-bottom:10px">
 						<h:outputLabel for="numero" value="Numero: *" />  
-						<p:inputText id="numero" value="#{salaFormController.sala.numero}" size="60">
+						<p:inputText id="numero" value="#{filmeFormController.filme.numero}" size="60">
 							<p:message for="numero" />
 						</p:inputText>
 						
 						<h:outputLabel for="capacidade" value="Capacidade: *" />  
-						<p:inputText id="capacidade" value="#{salaFormController.sala.capacidade}" size="60">
+						<p:inputText id="capacidade" value="#{filmeFormController.filme.capacidade}" size="60">
 							<p:message for="capacidade" />
 						</p:inputText>						
 					</h:panelGrid>
 				
-			<p:commandButton action="#{salaFormController.salvar}" value="Salvar" ajax="false"/>
+			<p:commandButton action="#{filmeFormController.salvar}" value="Salvar" ajax="false"/>
 			</f:validateBean>
 		</h:form>	
 
