@@ -1,0 +1,33 @@
+<ui:composition template="includes/estrutura.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+	<ui:define name="corpo">
+
+		<h1>Sessao</h1>
+		<p:messages id="messages" />
+
+		<h:form>
+			<f:validateBean>
+				<h:panelGrid columns="2" style="margin-bottom:10px">
+					<h:outputLabel for="titulo" value="Data:" />
+						#{sessaoFormController.sessao.data}
+						
+						<h:outputLabel for="descricao" value="Sala:" />
+						#{sessaoFormController.sessao.sala.numero}					
+				        
+				        <h:outputLabel for="descricao" value="Filme:" />
+						#{sessaoFormController.sessao.filme.titulo}	
+						
+						<h:outputLabel for="descricao" value="Ingressos Disponíveis:" />
+						#{sessaoFormController.sessao.qtdeDisponivel}	
+				</h:panelGrid>
+			</f:validateBean>
+		</h:form>
+
+	</ui:define>
+</ui:composition>
