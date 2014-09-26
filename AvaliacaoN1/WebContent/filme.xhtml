@@ -24,7 +24,11 @@
 					<f:facet name="header">Sinopse</f:facet>
 					#{filme.sinopse}  
 			    </p:column>			    
-				<p:column style="width: 80px;">
+				<p:column style="width: 120px;">
+					<p:button outcome="filmeVisualizar.xhtml" icon="ui-icon-info" title="Exibir Filme">
+						<f:param name="id" value="#{filme.id}" />
+					</p:button>
+					<p:spacer width="10" />
 					<f:facet name="header">Ações</f:facet>
 					<p:button outcome="filmeFormulario.xhtml" icon="ui-icon-pencil" title="Editar Filme">
 						<f:param name="id" value="#{filme.id}" />

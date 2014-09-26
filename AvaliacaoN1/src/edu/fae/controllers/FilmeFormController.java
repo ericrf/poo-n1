@@ -34,7 +34,6 @@ public class FilmeFormController implements Serializable {
 			filme = filmeDao.findById(new Long(id));
 		}
 		
-		List<Ator> all = atorDao.findAll();
 	}
 	public Filme getFilme() {
 		return filme;
@@ -55,6 +54,4 @@ public class FilmeFormController implements Serializable {
 	public void setAtores(DualListModel<Ator> target) {
 		filme.setAtores(target.getTarget());
 	}
-	
-
 }

@@ -1,0 +1,63 @@
+<ui:composition template="includes/estrutura.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+	<ui:define name="corpo">
+
+		<h1>Filme</h1>
+		<p:messages id="messages" />
+
+		<h:form>
+			<f:validateBean>
+				<h:panelGrid columns="2" style="margin-bottom:10px">
+					<h:outputLabel for="titulo" value="Titulo:" />
+						#{filmeFormController.filme.titulo}
+						
+						<h:outputLabel for="descricao" value="Descrição:" />
+						#{filmeFormController.filme.sinopse}					
+				        
+						<h:outputLabel for="atores" value="Atores:" />
+					<p:dataTable value="#{filmeFormController.filme.atores}" var="ator">
+						<p:column>
+							<f:facet name="header">Nome</f:facet>
+								#{ator.nome}  
+						    </p:column>
+					</p:dataTable>
+
+					<h:outputLabel for="atores" value="Atores:" />
+					
+						<p:dataTable value="#{filmeFormController.filme.sessoes}"
+						var="sessao">
+						<p:column>
+							<f:facet name="header">data</f:facet>
+								#{sessao.data}  
+						    </p:column>
+
+						<p:column>
+							<f:facet name="header">sala</f:facet>
+							  	#{sessao.sala.numero}  
+						    </p:column>
+
+						<p:column>
+							<f:facet name="header">ingressos disponíveis</f:facet>
+									#{sessao.qtdeDisponivel }
+						    </p:column>
+
+						<p:column style="width: 20px;">
+							<f:facet name="header">Comprar</f:facet>
+							<p:button outcome="comprarIngresso.xhtml" icon="ui-icon-cart"
+								title="ComprarIngresso">
+								<f:param name="id" value="#{sessao.id}" />
+							</p:button>
+						</p:column>
+					</p:dataTable>
+				</h:panelGrid>
+			</f:validateBean>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

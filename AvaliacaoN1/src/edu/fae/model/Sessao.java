@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 /**
  * 
@@ -58,6 +59,12 @@ public class Sessao implements Model {
 	}
 	public void setSala(Sala sala) {
 		this.sala = sala;
+	}
+	
+	@Transient
+	public int getQtdeDisponivel(){
+		int x = sala.getCapacidade() - getIngressosVendidos();
+		return x;
 	}
 	
 	
